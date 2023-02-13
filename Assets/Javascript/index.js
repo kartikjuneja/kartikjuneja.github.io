@@ -15,7 +15,11 @@ window.onload = function () {
         var newName = prompt("Okay! Enter your name below:", username.textContent);
         //usernames.textContent = newName;
 
-        if (newName) {
+        if (newName === null) {
+            // Handle the cancel event
+            newName = username.textContent;
+        } else {
+            // Handle the input event
             let newNameTrimmed = newName.trim();
         }
 

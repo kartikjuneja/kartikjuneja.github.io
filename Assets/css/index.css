@@ -5,7 +5,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("..\\logo\\ezgif.com-video-to-gif.gif") no-repeat center center fixed;
+    background: url("..\\Images\\ezgif.com-video-to-gif.gif") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
