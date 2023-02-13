@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function () {
     const header = document.querySelector("#header");
     const usernames = document.querySelectorAll(".username");
     const username = document.querySelector("#username");
@@ -12,23 +12,25 @@ window.onload = function () {
     const buttonRow2 = document.querySelector("#buttonRow2");
 
     button3.addEventListener("click", function () {
-        var newName = prompt("Okay! then what should I call you?", username.textContent);
+        GetUserNameScreen();
+        //var newName = prompt("Okay! then what should I call you?", username.textContent);
+        //var newName = "Okay! then what should I call you?";
         //usernames.textContent = newName;
 
-        if (newName === null) {
-            // Handle the cancel event
-            newName = username.textContent;
-        } else {
-            // Handle the input event
-            let newNameTrimmed = newName.trim();
-        }
+        //if (newName === null) {
+        //    // Handle the cancel event
+        //    newName = username.textContent;
+        //} else {
+        //    // Handle the input event
+        //    let newNameTrimmed = newName.trim();
+        //}
 
-        if (!newName) {
-            newName = "Anon";
-        }
-        usernames.forEach(span => {
-            span.textContent = newName;
-        });
+        //if (!newName) {
+        //    newName = "Anon";
+        //}
+        //usernames.forEach(span => {
+        //    span.textContent = newName;
+        //});
     });
 
     //header.addEventListener("click", function () {
@@ -41,15 +43,19 @@ window.onload = function () {
 
     if (now.getHours() > 20 || now.getHours() < 6) {
         document.body.classList.toggle("night-mode");
+        $('#userNameInput').addClass("night-mode-input");
         nightModeBtn.textContent = "Lights please!"
     }
 
     nightModeBtn.addEventListener("click", function () {
         document.body.classList.toggle("night-mode");
+        
         if (nightModeBtn.textContent.includes("Light")) {
-            nightModeBtn.textContent = "I want darkness";
+            nightModeBtn.textContent = "I love darkness";
+            $('#userNameInput').removeClass("night-mode-input");
         } else {
             nightModeBtn.textContent = "Lights please!"
+            $('#userNameInput').addClass("night-mode-input");
         }
 
     });
@@ -63,6 +69,13 @@ window.onload = function () {
     });
 
     button4.addEventListener("click", function () {
+        const messageText = "You're really nice, " + username.textContent + ".";
+        ShowSocialProfiles(messageText);
+    });
+
+    buttonForYou.addEventListener("click", function () {
+        header.style.display = "none";
+        buttonRow1.style.display = "none";
         const messageText = "You're wonderful, " + username.textContent + ".";
         ShowSocialProfiles(messageText);
     });
@@ -83,39 +96,71 @@ window.onload = function () {
         socialmediaAnonymous.style.display = "block";
         message.textContent = "Sure, Just go to below site and send it.";
     });
-}
 
-function ShowSocialProfiles(messageText) {
+    $('#userNameInput').keyup(function (event) {
+        debugger;
+        if (event.keyCode === 13) {
+            // Trigger your function here
+            ChangeUserName();
+        }
+    });
 
-    buttonRow2.style.display = "none";
-    buttonRow3.style.display = "block";
-    button7.style.display = "inline-block";
+    function ShowSocialProfiles(messageText) {
 
-    message.textContent = messageText;
-    socialinvite.style.display = "block";
-    socialmedia.style.display = "block";
-}
+        buttonRow2.style.display = "none";
+        buttonRow3.style.display = "block";
+        button7.style.display = "inline-block";
 
-function ResetAll() {
-    header.style.display = "block";
-    buttonRow1.style.display = "block";
-    buttonRow2.style.display = "none";
-    buttonRow3.style.display = "none";
+        message.textContent = messageText;
+        socialinvite.style.display = "block";
+        socialmedia.style.display = "block";
+    }
 
-    message.textContent = "What's up?";
-    socialinvite.style.display = "none";
-    socialmedia.style.display = "none";
-    socialmediaAnonymous.style.display = "none";
-}
+    function ResetAll() {
+        $('#header').show();
+        $('#buttonRow1').show();
+        $('#buttonRow2').hide();
+        $('#buttonRow3').hide();
 
-function GetUserNameScreen() {
-    header.style.display = "none";
-    buttonRow1.style.display = "none";
-    buttonRow2.style.display = "none";
-    buttonRow3.style.display = "none";
+        message.textContent = "What's up?";
+        socialinvite.style.display = "none";
+        socialmedia.style.display = "none";
+        socialmediaAnonymous.style.display = "none";
+        $('#userNameDiv').hide();
+    }
 
-    message.textContent = "What's up?";
-    socialinvite.style.display = "none";
-    socialmedia.style.display = "none";
-    socialmediaAnonymous.style.display = "none";
-}
+    function GetUserNameScreen() {
+        $('#header').hide();
+        $('#buttonRow1').hide();
+        $('#buttonRow2').hide();
+        $('#buttonRow3').hide();
+
+        message.textContent = "Okay! then what should I call you?";
+        $('#userNameDiv').show();
+
+        socialinvite.style.display = "none";
+        socialmedia.style.display = "none";
+        socialmediaAnonymous.style.display = "none";
+    }
+
+    function ChangeUserName() {
+        var newName = $('#userNameInput').val();
+        $('#userNameInput').val("");
+        if (newName === null || newName === undefined) {
+            // Handle the cancel event
+            newName = username.textContent;
+        } else {
+            // Handle the input event
+            newName = newName.trim();
+        }
+
+        if (!newName) {
+            newName = "Anon";
+        }
+        usernames.forEach(span => {
+            span.textContent = newName;
+        });
+
+        ResetAll();
+    }
+});
