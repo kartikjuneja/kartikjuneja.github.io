@@ -12,19 +12,24 @@ window.onload = function () {
     const buttonRow2 = document.querySelector("#buttonRow2");
 
     button3.addEventListener("click", function () {
-        var newHeaderText = prompt("Okay! Enter your name below:", username.textContent);
-        //usernames.textContent = newHeaderText;
-        if (!newHeaderText.trim()) {
-            newHeaderText = "Anonymous";
+        var newName = prompt("Okay! Enter your name below:", username.textContent);
+        //usernames.textContent = newName;
+
+        if (newName) {
+            let newNameTrimmed = newName.trim();
+        }
+
+        if (!newName) {
+            newName = "Anonymous";
         }
         usernames.forEach(span => {
-            span.textContent = newHeaderText;
+            span.textContent = newName;
         });
     });
 
     //header.addEventListener("click", function () {
-    //    const newHeaderText = prompt("Enter new header text:", header.textContent);
-    //    header.textContent = newHeaderText;
+    //    const newName = prompt("Enter new header text:", header.textContent);
+    //    header.textContent = newName;
     //});
 
     button1.addEventListener("click", function () {
