@@ -1,4 +1,4 @@
-$(document).ready(function () {
+﻿$(document).ready(function () {
     const header = document.querySelector("#header");
     const usernames = document.querySelectorAll(".username");
     const username = document.querySelector("#username");
@@ -44,17 +44,17 @@ $(document).ready(function () {
     if (now.getHours() > 20 || now.getHours() < 6) {
         document.body.classList.toggle("night-mode");
         $('#userNameInput').addClass("night-mode-input");
-        nightModeBtn.textContent = "Lights please!"
+        nightModeBtn.textContent = "Lights please! 🌞"
     }
 
     nightModeBtn.addEventListener("click", function () {
         document.body.classList.toggle("night-mode");
         
         if (nightModeBtn.textContent.includes("Light")) {
-            nightModeBtn.textContent = "I love darkness";
+            nightModeBtn.textContent = "I love darkness 🌘";
             $('#userNameInput').removeClass("night-mode-input");
         } else {
-            nightModeBtn.textContent = "Lights please!"
+            nightModeBtn.textContent = "Lights please! 🌞"
             $('#userNameInput').addClass("night-mode-input");
         }
 
