@@ -91,10 +91,17 @@
             <a href="https://www.youtube.com/@kartikjuneja" target="_blank">
                 <img src="https://www.youtube.com/s/desktop/5191a190/img/favicon_144x144.png" class="logo">
             </a>
+        </div> 
+
+        <div id="socialmediaAnonymous" class="text-center mb-5" style="text-align: center; display:none">
+            <a href="https://sarahah.top/u/kartikjuneja" target="_blank">
+                <img src="https://sarahah.top/img/Logo.png" class="logo">
+            </a>
         </div>
+
         <div id="buttonRow3" class="text-center" style="display:none">
             <button id="button6" class="btn btn-primary mr-3">I've changed my mind. Please take me back.</button>
-            <button id="button7" class="btn btn-primary mr-3" style="display:none">But I want to send you anonymous message.</button>
+            <button id="button7" class="btn btn-primary mr-3">I want to send you message anonymously.</button>
         </div>
     </div>
 
@@ -149,6 +156,7 @@
 
             buttonRow2.style.display = "none";
             buttonRow3.style.display = "block";
+            button7.style.display = "inline-block";
 
             message.textContent = messageText;
             socialinvite.style.display = "block";
@@ -160,7 +168,11 @@
         });
 
         button7.addEventListener("click", function () {
-            ResetAll();
+            socialmedia.style.display = "none";
+            socialinvite.style.display = "none";
+            button7.style.display = "none";
+            socialmediaAnonymous.style.display = "block";
+            message.textContent = "Sure, Just go to below site and send it.";
         });
 
         function ResetAll() {
@@ -172,6 +184,7 @@
             message.textContent = "Why you came here?";
             socialinvite.style.display = "none";
             socialmedia.style.display = "none";
+            socialmediaAnonymous.style.display = "none";
         }
     </script>
 </body>
