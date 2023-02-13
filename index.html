@@ -13,23 +13,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="Assets\lib\jquery-3.6.3.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>-->
+    <script src="Assets\lib\jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="Assets\Javascript\index.js"></script>
     <link rel="stylesheet" type="text/css" href="Assets\css\index.css">
     <title>Anonymous Page</title>
 </head>
 <body>
     <div class="container">
-        <h1 id="header" class="text-center">Hey <span id="username" class="username">Anonymous</span>!</h1>
-        <h5 id="message" class="text-center">Why you came here?</h5>
+        <button type="button" class="btn btn-secondary btn-sm" id="nightModeBtn">I want darkness</button>
+        <h1 id="header" class="text-center">Hey <span id="username" class="username">Anon</span>!</h1>
+        <h5 id="message" class="text-center">What's up?</h5>
         <h5 id="socialinvite" class="text-center" style="display:none">Here are some of my profile links</h5>
         <div id="buttonRow1" class="text-center">
             <div id="buttons1" class="text-center mb-5">
-                <button id="button3" class="btn btn-primary mr-3">I am not <span id="username" class="username"></span></button>
+                <button id="button3" class="btn btn-primary mr-3">I'm not <span id="username" class="username"></span></button>
                 <button id="button1" class="btn btn-primary mr-3">Just hanging out</button>
                 <button id="button2" class="btn btn-primary mr-3">I have work for you</button>
             </div>
-            <div id="buttons2" class="text-center mt-5">
+            <div id="buttons2" class="text-center mt-5" style="display:none">
                 <!--<button id="button1" class="btn btn-primary mr-3">You can do lot more things here soon ...</button>-->
                 <p class="text-center mb-0 mb-5">You can do lot more things sooner ...</p>
                 <p class="text-center mb-3">Want to help me? or get the source code for your own?</p>
@@ -85,5 +88,6 @@
             <button id="button7" class="btn btn-primary mr-3">I want to send you message anonymously.</button>
         </div>
     </div>
+    <script src="Assets\Javascript\index.js"></script>
 </body>
 </html>

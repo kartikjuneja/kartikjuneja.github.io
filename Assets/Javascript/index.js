@@ -12,7 +12,7 @@ window.onload = function () {
     const buttonRow2 = document.querySelector("#buttonRow2");
 
     button3.addEventListener("click", function () {
-        var newName = prompt("Okay! Enter your name below:", username.textContent);
+        var newName = prompt("Okay! then what should I call you?", username.textContent);
         //usernames.textContent = newName;
 
         if (newName === null) {
@@ -24,7 +24,7 @@ window.onload = function () {
         }
 
         if (!newName) {
-            newName = "Anonymous";
+            newName = "Anon";
         }
         usernames.forEach(span => {
             span.textContent = newName;
@@ -35,6 +35,24 @@ window.onload = function () {
     //    const newName = prompt("Enter new header text:", header.textContent);
     //    header.textContent = newName;
     //});
+
+    var now = new Date();
+    const nightModeBtn = document.getElementById("nightModeBtn")
+
+    if (now.getHours() > 20 || now.getHours() < 6) {
+        document.body.classList.toggle("night-mode");
+        nightModeBtn.textContent = "Lights please!"
+    }
+
+    nightModeBtn.addEventListener("click", function () {
+        document.body.classList.toggle("night-mode");
+        if (nightModeBtn.textContent.includes("Light")) {
+            nightModeBtn.textContent = "I want darkness";
+        } else {
+            nightModeBtn.textContent = "Lights please!"
+        }
+
+    });
 
     button1.addEventListener("click", function () {
         header.style.display = "none";
@@ -84,7 +102,19 @@ function ResetAll() {
     buttonRow2.style.display = "none";
     buttonRow3.style.display = "none";
 
-    message.textContent = "Why you came here?";
+    message.textContent = "What's up?";
+    socialinvite.style.display = "none";
+    socialmedia.style.display = "none";
+    socialmediaAnonymous.style.display = "none";
+}
+
+function GetUserNameScreen() {
+    header.style.display = "none";
+    buttonRow1.style.display = "none";
+    buttonRow2.style.display = "none";
+    buttonRow3.style.display = "none";
+
+    message.textContent = "What's up?";
     socialinvite.style.display = "none";
     socialmedia.style.display = "none";
     socialmediaAnonymous.style.display = "none";
