@@ -32,7 +32,14 @@ body {
     position: absolute;
     right: 20px;
     top: 20px;
+    background-color: black !important;
+    color:white;
 }
+
+    #nightModeBtn.night-mode-button {
+        background-color: white !important;
+        color:black;
+    }
 
 #userNameDiv {
     text-align: -webkit-center !important;

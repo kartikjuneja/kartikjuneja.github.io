@@ -44,6 +44,7 @@
     if (now.getHours() > 20 || now.getHours() < 6) {
         document.body.classList.toggle("night-mode");
         $('#userNameInput').addClass("night-mode-input");
+        $('#nightModeBtn').addClass("night-mode-button");
         nightModeBtn.textContent = "Lights please! 🌞"
     }
 
@@ -53,9 +54,11 @@
         if (nightModeBtn.textContent.includes("Light")) {
             nightModeBtn.textContent = "I love darkness 🌘";
             $('#userNameInput').removeClass("night-mode-input");
+            $('#nightModeBtn').removeClass("night-mode-button");
         } else {
             nightModeBtn.textContent = "Lights please! 🌞"
             $('#userNameInput').addClass("night-mode-input");
+            $('#nightModeBtn').addClass("night-mode-button");
         }
 
     });
@@ -76,7 +79,7 @@
     buttonForYou.addEventListener("click", function () {
         header.style.display = "none";
         buttonRow1.style.display = "none";
-        const messageText = "You're wonderful, " + username.textContent + ".";
+        const messageText = "Thankyou for your kind visit.";
         ShowSocialProfiles(messageText);
     });
 
