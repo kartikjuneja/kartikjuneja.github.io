@@ -23,48 +23,145 @@
 <body>
     <div class="container">
         <button type="button" class="btn btn-secondary btn-sm" id="nightModeBtn">I love darkness 🌘</button>
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <h1 id="header" class="text-center">Hey, <span id="username" class="username">It's me, Kartik</span></h1>
+
+        <!--Home Screen-->
+        <div id="HomeScreen">
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 id="header" class="text-center">Hey, <span id="username" class="username">It's me, Kartik</span></h1>
+                </div>
             </div>
-        </div> 
-        <div class="row">
-            <div class="col-12 d-flex justify-content-center">
-                <h5 id="message" class="text-center">What's up?</h5>
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="message" class="text-center">What's up?</h5>
+                </div>
             </div>
-        </div>   
+            <div id="HomeButtons" class="row justify-content-center">
+                <div class="col-sm-12 d-flex justify-content-center" style="display:none!important">
+                    <button id="button3" class="btn btn-primary mr-3">I'm not <span id="username" class="username"></span> 😕 </button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3" >
+                    <button id="buttonAbout" class="btn btn-primary mr-3">Who Kartik? 🤔</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3" style="display:none!important">
+                    <button id="button2" class="btn btn-primary mr-3">I have work for you 🤑</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3" style="display:none!important">
+                    <button id="buttonForYou" class="btn btn-primary mr-3">I'm here for uhh 🤗</button>
+                </div>
+            </div>
+        </div>
+
+        <!--About Screen-->
+        <div id="AboutScreen" style="display:none">
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 id="header" class="text-center">The One and Only: Kartik Juneja</h1>
+                </div>
+            </div> 
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="message" class="text-center mb-0">
+                        Hey there! I'm a software engineer with a love for all things tech and innovation. When I'm not writing code or tinkering with gadgets, I enjoy exploring new hobbies and interests - whether it's learning a new language, trying out a new recipe, or diving into a good book.
+
+                        As someone who values hard work and dedication, I'm always striving to improve my skills and knowledge in my field. But at the same time, I also believe in having fun and enjoying the journey - after all, life's too short to be serious all the time!
+
+                        So whether you're looking for a tech-savvy collaborator, a friendly colleague, or just someone to chat with over coffee, I'm here and always up for a good conversation. Let's connect and see where our paths may lead - who knows, we might just discover some exciting new opportunities along the way!
+                    </h5>
+                </div>
+            </div>
+            <!--<div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="message" class="text-center"> As per profession I am a Software Engineer.</h5>
+                </div>
+            </div>-->
+            <div id="AboutButtons" class="row justify-content-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <button id="buttonHome_About" class="ToHome btn btn-primary mr-3">Okay, Very Well 👍</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <button id="buttonEducation" class="btn btn-primary mr-3">Education 🎓</button>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3" style="display:none!important">
+                    <button id="buttonWork" class="btn btn-primary mr-3">Work 💼</button>
+                </div> 
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <button id="buttonSocial" class="btn btn-primary mr-3">Social Media	🙃</button>
+                </div>
+            </div>
+        </div>
+
+        <!--Education Screen-->
+        <div id="EducationScreen" style="display:none">
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 id="header" class="text-center">My Education Story</h1>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="messageEd1" class="text-center">I may not have a laundry list of academic achievements, but I did manage to survive my schooling years at KDM School in my hometown Gharaunda - a true test of resilience, if you ask me.</h5>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="messageEd2" class="text-center"> From there, I ventured out into the wild world of college and landed at CGC (Chandigarh Group of Colleges) Landran, Mohali, to pursue my B.Tech in Information Technology. There, I learned a great deal about coding, algorithms, and all things tech - which I promptly forgot as soon as I walked out of the exam hall.</h5>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="messageEd3" class="text-center"> Since then, I've become something of an anti-academic, shunning textbooks and lectures in favor of more exciting pursuits - like binge-watching my favorite shows and arguing with strangers on the internet. I suppose you could say I'm done with formal education, but that doesn't mean I'm done learning. After all, life is the greatest teacher of them all - and so far, it's been one heck of a ride!</h5>
+                </div>
+            </div>
+            <div id="EducationButtons" class="row justify-content-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <button id="buttonAbout_Education" class="ToHome btn btn-primary mr-3">Hmmm, Good 👍</button>
+                    <!--</div>
+        <div class="col d-flex justify-content-center">-->
+                    <!--<button id="buttonSocial_Education" class="btn btn-primary mr-3">I want to know in more depth.</button>-->
+                </div>
+            </div>
+        </div>  
+        
+        <!--Social Screen-->
+        <div id="SocialScreen" style="display:none">
+            <div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h1 id="header" class="text-center">Let's connect</h1>
+                </div>
+            </div>
+            <!--<div class="row mb-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <h5 id="messageEd1" class="text-center">Lets connect.</h5>
+                </div>
+            </div>-->
+            <div id="EducationButtons" class="row justify-content-center">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <a href="https://www.instagram.com/kartikjuneja" target="_blank">
+                        <button id="buttonInstagram_Social" class="ToHome btn btn-primary mr-3">Instagram <img src="https://static.cdninstagram.com/rsrc.php/v3/yt/r/30PrGfR3xhB.png" class="logo"></button>
+                    </a>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-auto d-flex justify-content-center mb-3">
+                    <button id="buttonAbout_Social" class="ToHome btn btn-primary mr-3">I'm Good 👍</button>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12 d-flex justify-content-center">
                 <h5 id="socialinvite" class="text-center" style="display:none">Here are some of my profile links</h5>
             </div>
         </div>
-        <div  id="buttonRow1" class="row">
-            <div class="col-3 d-flex justify-content-center">
-            </div>    
-            <div class="col-2 d-flex justify-content-center" style="display:none!important">
-                <button id="button3" class="btn btn-primary mr-3">I'm not <span id="username" class="username"></span> 😕 </button>
-            </div> 
-            <div class="col-2 d-flex justify-content-center">
-                <button id="button1" class="btn btn-primary mr-3">Just hanging out 😄</button>
-            </div>  
-            <div class="col-2 d-flex justify-content-center">
-                <button id="buttonForYou" class="btn btn-primary mr-3">I'm here for uhh 🤗</button>
-            </div>   
-            <div class="col-2 d-flex justify-content-center">
-                <button id="button2" class="btn btn-primary mr-3">I have work for you 🤑</button>
-            </div> 
-            <div class="col-2 d-flex justify-content-center">
-            </div>
-        </div>
+
         <!--<div id="buttonRow1" class="row text-center">
-            <div id="buttons1" class="text-center mb-5">
-                <button id="button3" class="btn btn-primary mr-3">I'm not <span id="username" class="username"></span></button>
-                <button id="button1" class="btn btn-primary mr-3">Just hanging out</button>
-                <button id="button2" class="btn btn-primary mr-3">I have work for you</button>
-            </div>
-            <div id="buttons2" class="text-center mt-5" style="display:none">-->
-                <!--<button id="button1" class="btn btn-primary mr-3">You can do lot more things here soon ...</button>-->
-                <!--<p class="text-center mb-0 mb-5">You can do lot more things sooner ...</p>
+        <div id="buttons1" class="text-center mb-5">
+            <button id="button3" class="btn btn-primary mr-3">I'm not <span id="username" class="username"></span></button>
+            <button id="button1" class="btn btn-primary mr-3">Just hanging out</button>
+            <button id="button2" class="btn btn-primary mr-3">I have work for you</button>
+        </div>
+        <div id="buttons2" class="text-center mt-5" style="display:none">-->
+        <!--<button id="button1" class="btn btn-primary mr-3">You can do lot more things here soon ...</button>-->
+        <!--<p class="text-center mb-0 mb-5">You can do lot more things sooner ...</p>
                 <p class="text-center mb-3">Want to help me? or get the source code for your own?</p>
                 <a href="https://github.com/kartikjuneja/kartikjuneja.github.io" target="_blank">
                     <button id="buttonGithub" class="btn btn-secondary mr-3">
@@ -81,9 +178,6 @@
             <button id="button5" class="btn btn-primary mr-3">Not Interested.</button>
         </div>
         <div id="socialmedia" class="text-center mb-5" style="text-align: center; display:none">
-            <a href="https://www.linkedin.com/in/kartikjuneja" target="_blank">
-                <img src="Assets\logo\LI-In-Bug.png" class="logo">
-            </a>
             <a href="https://www.facebook.com/ikartikjuneja" target="_blank">
                 <img src="Assets\logo\icons8-facebook-96.png" class="logo">
             </a>
@@ -92,6 +186,14 @@
             </a>
             <a href="https://twitter.com/ikartikjuneja" target="_blank">
                 <img src="Assets\logo\2021 Twitter logo - blue.png" class="logo">
+            </a>
+            <a href="https://www.youtube.com/@kartikjuneja" target="_blank">
+                <img src="https://www.youtube.com/s/desktop/5191a190/img/favicon_144x144.png" class="logo">
+            </a>
+        </div>
+        <div id="jobprofiles" class="text-center mb-5" style="text-align: center; display:none">
+            <!--<a href="https://www.linkedin.com/in/kartikjuneja" target="_blank">
+                <img src="Assets\logo\LI-In-Bug.png" class="logo">
             </a>
             <a href="mailto:kjuneja7004@gmail.com">
                 <img src="Assets\logo\icons8-gmail-logo.gif" alt="Gmail logo" width="50" height="50">
@@ -105,18 +207,18 @@
             <a href="https://www.hackerrank.com/kartikjuneja" target="_blank">
                 <img src="https://hrcdn.net/favicon.ico" class="logo">
             </a>
-            <a href="https://www.youtube.com/@kartikjuneja" target="_blank">
-                <img src="https://www.youtube.com/s/desktop/5191a190/img/favicon_144x144.png" class="logo">
-            </a> 
             <a href="https://www.hackerearth.com/@ikartikjuneja" target="_blank">
                 <img src="Assets\logo\HE_identity_blue.png" class="logo">
-            </a>
+            </a>-->
         </div>
 
         <div id="socialmediaAnonymous" class="text-center mb-5" style="text-align: center; display:none">
             <a href="https://sarahah.top/u/kartikjuneja" target="_blank">
                 <img src="https://sarahah.top/img/Logo.png" class="logo">
             </a>
+        </div>
+        <div id="frameCon">
+
         </div>
 
         <div id="buttonRow3" class="text-center" style="display:none">
