@@ -5,7 +5,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url("..\\Images\\ezgif.com-video-to-gif.gif") no-repeat center center fixed;
+    background: url("..\\Images\\Bg_Abtract1_White.gif") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -20,7 +20,7 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: url("..\\Images\\ezgif.com-gif-maker.gif") no-repeat center center fixed;
+        background: url("..\\Images\\Bg_Abtract1_Black.gif") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
