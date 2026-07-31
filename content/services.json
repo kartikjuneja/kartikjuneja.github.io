@@ -1,0 +1,22 @@
+[
+  {
+    "id": "web-applications",
+    "name": "Web Applications",
+    "description": "Business web applications with .NET Core, Razor, and JavaScript UI patterns used in fintech delivery."
+  },
+  {
+    "id": "backend-systems",
+    "name": "Backend Systems",
+    "description": "Server-side systems with .NET Framework, .NET Core, and WCF in fintech product contexts."
+  },
+  {
+    "id": "data-platforms",
+    "name": "Data & SQL",
+    "description": "Application data work with SQL Server and T-SQL."
+  },
+  {
+    "id": "cloud",
+    "name": "Cloud",
+    "description": "Azure used as part of the professional toolchain."
+  }
+]

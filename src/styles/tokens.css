@@ -1,0 +1,62 @@
+/**
+ * Design tokens — DESIGN_SYSTEM.md (frozen)
+ * Base unit: 4px. No magic numbers outside these tokens.
+ */
+
+:root {
+  /* —— Spacing (4px scale) —— */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* —— Typography families —— */
+  --font-ui: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-reading: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  /* —— Type ramp —— */
+  --text-env-name: 15px;
+  --text-env-meta: 12px;
+  --text-module-title: 12px;
+  --text-module-action: 12px;
+  --text-row-title: 14px;
+  --text-body: 14px;
+  --text-meta: 12px;
+  --text-app-h1: clamp(28px, 4vw, 40px);
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+
+  --tracking-env-meta: 0.02em;
+  --tracking-module-title: 0.06em;
+  --tracking-app-h1: -0.02em;
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+
+  /* —— Layout —— */
+  --chrome-height: 52px;
+  --rail-height: 40px;
+  --content-max: 1200px;
+  --grid-columns: 12;
+  --grid-gutter: var(--space-6);
+  --module-radius: 8px;
+  --control-radius: 6px;
+
+  /* —— Motion —— */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 140ms;
+  --duration: 180ms;
+
+  /* —— Elevation (one level max) —— */
+  --elevation-1: 0 1px 0 color-mix(in srgb, var(--color-fg) 4%, transparent);
+
+  /* —— Focus —— */
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}

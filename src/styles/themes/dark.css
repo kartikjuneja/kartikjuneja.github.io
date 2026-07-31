@@ -1,0 +1,16 @@
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #0c0e11;
+  --color-surface: #14181e;
+  --color-surface-hover: #1a2028;
+  --color-border: #2a313c;
+  --color-fg: #eef1f4;
+  --color-fg-muted: #9aa3b0;
+  --color-fg-subtle: #8b94a3;
+  --color-accent: #6f9eae;
+  --color-accent-strong: #8fb8c6;
+  --color-accent-soft: color-mix(in srgb, var(--color-accent) 16%, transparent);
+  --color-danger: #c98890;
+}

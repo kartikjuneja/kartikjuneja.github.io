@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "id": "core",
+      "name": "Skills",
+      "items": [
+        "C#",
+        "Javascript/KnockoutJS/JQuery",
+        "SQL Server/T-SQL",
+        "Azure",
+        ".Net Framework",
+        ".Net Core",
+        "WCF"
+      ]
+    }
+  ],
+  "languages": [
+    { "name": "Hindi" },
+    { "name": "English" },
+    { "name": "Punjabi" }
+  ]
+}

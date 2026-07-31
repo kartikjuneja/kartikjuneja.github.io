@@ -1,0 +1,85 @@
+/* Layout primitives — 12-col Module Rail Grid */
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
+  gap: var(--grid-gutter);
+  align-items: start;
+}
+
+.home-grid__item {
+  min-width: 0;
+}
+
+.home-grid__item--span-4 {
+  grid-column: span 4;
+}
+
+.home-grid__item--span-6 {
+  grid-column: span 6;
+}
+
+.home-grid__item--span-8 {
+  grid-column: span 8;
+}
+
+.home-grid__item--span-12 {
+  grid-column: span 12;
+}
+
+/* Mobile: vertical application list */
+@media (max-width: 719px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .home-grid__item--span-4,
+  .home-grid__item--span-6,
+  .home-grid__item--span-8,
+  .home-grid__item--span-12 {
+    grid-column: span 1;
+  }
+}
+
+/* Tablet: 2-column friendly spans */
+@media (min-width: 720px) and (max-width: 959px) {
+  .home-grid__item--span-4 {
+    grid-column: span 6;
+  }
+
+  .home-grid__item--span-8 {
+    grid-column: span 12;
+  }
+}
+
+.app-shell {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.app-shell__header {
+  display: grid;
+  gap: var(--space-2);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.app-shell__title {
+  margin: 0;
+  font-size: var(--text-app-h1);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-app-h1);
+  line-height: var(--leading-tight);
+}
+
+.app-shell__description {
+  margin: 0;
+  color: var(--color-fg-muted);
+  font-size: var(--text-body);
+}
+
+.app-shell__body {
+  display: grid;
+  gap: var(--space-5);
+}

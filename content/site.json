@@ -1,0 +1,16 @@
+{
+  "name": "Kartik Juneja",
+  "title": "Senior Software Engineer",
+  "domain": "kartikjuneja.com",
+  "tagline": "Software engineer building fintech systems",
+  "summary": "Senior Software Engineer building fintech web and backend systems with .NET, focused on reliable delivery and clear engineering practice.",
+  "currentFocus": "Delivering and maintaining fintech software at Intersoft Data Labs — .NET web applications, services, and team delivery.",
+  "email": "kjuneja7004@gmail.com",
+  "location": "Karnal, HR, India",
+  "meta": {
+    "title": "Kartik Juneja — Senior Software Engineer",
+    "description": "Senior Software Engineer based in Karnal, HR, India. Builds fintech web and backend systems with .NET.",
+    "ogImage": "/og-image.svg",
+    "twitterHandle": "ikartikjuneja"
+  }
+}

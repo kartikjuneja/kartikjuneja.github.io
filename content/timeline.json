@@ -1,0 +1,50 @@
+[
+  {
+    "id": "edu-kdm",
+    "date": "Schooling",
+    "title": "KDM School",
+    "subtitle": "Gharaunda",
+    "description": "",
+    "type": "education"
+  },
+  {
+    "id": "edu-btech",
+    "date": "July 2015 – May 2019",
+    "title": "B.Tech (Information Technology)",
+    "subtitle": "CGC Landran, Mohali — Punjab Technical University",
+    "description": "",
+    "type": "education"
+  },
+  {
+    "id": "work-intersoft",
+    "date": "Aug 2019 – Current",
+    "title": "Senior Software Engineer",
+    "subtitle": "Intersoft Data Labs",
+    "description": "Multiple fintech projects using .NET Framework, .NET Core, and WCF. Mentored junior developers and led development and maintenance for a two-developer project.",
+    "type": "work"
+  },
+  {
+    "id": "proj-horsepower",
+    "date": "Jan 2019 – Current",
+    "title": "Horsepower Financial",
+    "subtitle": "Fintech project",
+    "description": "Fintech web application (.NET Core, Razor) that presents user cash flow from provided data.",
+    "type": "project"
+  },
+  {
+    "id": "proj-payreel",
+    "date": "Dec 2019 – Dec 2020",
+    "title": "Payreel",
+    "subtitle": "Fintech project",
+    "description": "Professional fintech project.",
+    "type": "project"
+  },
+  {
+    "id": "proj-thinkflow",
+    "date": "Feb 2021 – Dec 2022",
+    "title": "Thinkflow",
+    "subtitle": "Fintech project",
+    "description": "Professional fintech project.",
+    "type": "project"
+  }
+]

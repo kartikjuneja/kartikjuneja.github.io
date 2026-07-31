@@ -1,0 +1,20 @@
+{
+  "primary": [
+    { "label": "Home", "path": "/", "description": "Introduction and featured work", "showInNav": true, "showInFooter": true },
+    { "label": "About", "path": "/about", "description": "Background and profile", "showInNav": true, "showInFooter": true },
+    { "label": "Products", "path": "/products", "description": "Products and case studies", "showInNav": true, "showInFooter": true },
+    { "label": "Services", "path": "/services", "description": "Capabilities and engagement areas", "showInNav": true, "showInFooter": true },
+    { "label": "Timeline", "path": "/timeline", "description": "Career and education timeline", "showInNav": true, "showInFooter": true },
+    { "label": "Writing", "path": "/writing", "description": "Articles and notes", "showInNav": true, "showInFooter": true },
+    { "label": "Experiments", "path": "/experiments", "description": "Side projects and experiments", "showInNav": true, "showInFooter": true },
+    { "label": "Uses", "path": "/uses", "description": "Tools, hardware, and software", "showInNav": true, "showInFooter": true },
+    { "label": "Now", "path": "/now", "description": "Current focus and availability", "showInNav": true, "showInFooter": true },
+    { "label": "Resume", "path": "/resume", "description": "Printable resume", "showInNav": true, "showInFooter": true },
+    { "label": "Contact", "path": "/contact", "description": "Project inquiry", "showInNav": true, "showInFooter": true }
+  ],
+  "actions": [
+    { "label": "Explore Work", "path": "/products", "description": "View products and work" },
+    { "label": "Resume", "path": "/resume", "description": "Open resume" },
+    { "label": "Contact", "path": "/contact", "description": "Start a project inquiry" }
+  ]
+}

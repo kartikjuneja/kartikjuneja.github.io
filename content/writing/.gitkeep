@@ -1,0 +1,18 @@
+# Writing
+
+Add Markdown articles to this folder.
+
+Each file becomes an entry on the Writing page.
+
+Example frontmatter:
+
+```yaml
+---
+title: Article title
+description: Short summary
+date: 2026-01-01
+status: draft
+---
+```
+
+No articles yet.
