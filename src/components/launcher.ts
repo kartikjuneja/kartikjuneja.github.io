@@ -18,7 +18,7 @@ export function createSystemLauncher(options: {
   const input = el('input', {
     className: 'launcher__input',
     type: 'search',
-    placeholder: 'Jump to module, app, or page…',
+    placeholder: 'Jump to a page or product…',
     'aria-label': 'Command launcher',
     autocomplete: 'off',
   }) as HTMLInputElement;
@@ -31,7 +31,7 @@ export function createSystemLauncher(options: {
   });
 
   const hint = el('div', { className: 'launcher__hint' }, [
-    'Navigate the Product Operating System. Esc to close.',
+    'Jump across the workspace. Esc to close.',
   ]);
 
   const dialog = el(

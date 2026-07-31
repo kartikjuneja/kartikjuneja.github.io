@@ -1,0 +1,15 @@
+{
+  "intro": "I build software products and document how they evolve.",
+  "nowBuilding": {
+    "slug": null,
+    "ctaLabel": "Open"
+  },
+  "selected": {
+    "mode": "featured-first",
+    "slugs": [],
+    "limit": 4
+  },
+  "knowledgePreview": {
+    "limit": 3
+  }
+}

@@ -1,12 +1,14 @@
 ---
-# Independent / research product template
+# Professional case study template
 # Copy to {slug}.md. Files starting with "_" are ignored.
 #
-slug: example-product
-title: Example Product
+slug: example-case-study
+title: Example Case Study
 summary: One-sentence summary.
-type: independent
-status: Alpha
+type: professional
+employer: Employer Name
+role: Role Title
+status: Production
 technology: []
 featured: false
 homeOrder: 0

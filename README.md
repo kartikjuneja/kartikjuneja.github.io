@@ -1,14 +1,14 @@
-# Kartik Juneja — Personal Website Engine
+# Kartik Juneja — Public Workspace
 
-Static personal website for [kartikjuneja.com](https://kartikjuneja.com), built as a content-driven static site engine.
+Static public website for [Kartik Juneja](https://kartikjuneja.com) — products, professional case studies, engineering knowledge, and background.
 
 ## Stack
 
-- Vite
-- TypeScript
-- HTML / CSS / ES Modules
+- Vite + TypeScript
 - Markdown + JSON content
-- No backend, no SSR, no analytics in v1
+- Client History API router
+- GitHub Pages compatible (`dist/` + `404.html` fallback)
+- No backend, no CMS, no analytics in v1
 
 ## Quick start
 
@@ -17,14 +17,23 @@ npm install
 npm run dev
 ```
 
-Build for GitHub Pages:
+Production build:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The build outputs to `dist/` and copies `index.html` to `404.html` for History API deep-link support on GitHub Pages.
+`npm run build` writes `dist/` and copies `index.html` → `dist/404.html` for deep-link support on GitHub Pages.
+
+## Deploy (GitHub Pages)
+
+1. Build with `npm run build`.
+2. Publish the **`dist/`** folder (GitHub Actions recommended, or `gh-pages` / Pages “deploy from branch” of build output).
+3. Do **not** publish the repo root HTML from `archive/previous-site/` as the live site.
+4. Point the custom domain (if used) at Pages and confirm HTTPS.
+
+Deep links require the postbuild `404.html` fallback to be present in the published artifact.
 
 ## Content
 
@@ -32,41 +41,27 @@ Edit files under `content/`:
 
 | Path | Purpose |
 |------|---------|
-| `site.json` | Name, title, meta, contact |
-| `navigation.json` | Nav + primary CTAs |
-| `social.json` | Social links |
-| `services.json` | Capabilities |
-| `timeline.json` | Timeline entries |
-| `experience.json` | Work history (shared with Resume) |
-| `education.json` | Education (shared with Resume) |
-| `skills.json` | Skills + spoken languages |
-| `availability.json` | Now page structured fields |
-| `pages/*.md` | Long-form pages (about, now, uses) |
-| `products/*.md` | Product case studies (`_template.md` is ignored) |
-| `writing/*.md` | Articles |
-| `experiments/*.md` | Experiments |
+| `site/settings.json` | Name, meta, contact, domain |
+| `site/navigation.json` | Primary nav (Home · Products · Knowledge · About · Contact) |
+| `site/social.json` | Social links |
+| `home/homepage.json` | Home intro, now-building slug, featured selection |
+| `products/*.md` | Independent / research products |
+| `case-studies/*.md` | Professional case studies (e.g. Horsepower Financial) |
+| `knowledge/**/*.md` | Engineering knowledge entries |
+| `about/*` | Story, philosophy, experience, resume, focus, uses |
+
+Files prefixed with `_` (templates) are ignored by loaders.
 
 ## Architecture
 
-See [ARCHITECTURE.md](./ARCHITECTURE.md) for routing, content model, themes, search, and extension guidance.
+See [ARCHITECTURE.md](./ARCHITECTURE.md).
 
-## Design (frozen)
+## Design
 
-Identity is **Product Operating System**. Implement against the constitution — no new metaphors.
-
-| Document | Role |
-|----------|------|
-| [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) | Binding design constitution |
-| [docs/IMPLEMENTATION_GUIDE.md](./docs/IMPLEMENTATION_GUIDE.md) | Build order, components, checklists |
-| [docs/DECISIONS.md](./docs/DECISIONS.md) | Decision log (why) |
-| [docs/README.md](./docs/README.md) | Full documentation index |
-
-Historical exploration (reference only): [DESIGN_REVIEW.md](./DESIGN_REVIEW.md), [DESIGN_DIRECTIONS.md](./DESIGN_DIRECTIONS.md), [OPERATING_SYSTEM_DIRECTION.md](./OPERATING_SYSTEM_DIRECTION.md).
-
-## Placeholders
-
-See [TODO.md](./TODO.md) for content still required.
+Visual system: [DESIGN_SYSTEM.md](./DESIGN_SYSTEM.md) (Module Rail Grid).  
+Product narrative: [docs/WORKSPACE_REPOSITIONING.md](./docs/WORKSPACE_REPOSITIONING.md).  
+Docs index: [docs/README.md](./docs/README.md).
 
 ## Archive
 
-The previous website is preserved at `archive/previous-site/` and is not part of the active app.
+Previous website: `archive/previous-site/` (inactive).

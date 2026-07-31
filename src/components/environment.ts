@@ -39,18 +39,19 @@ export function createEnvironmentChrome(options: {
 
   const context = el('div', { className: 'env-context' }, [back, appTitle]);
 
+  const shortcut = shortcutLabel();
   const launcherBtn = el(
     'button',
     {
       className: 'icon-btn',
       type: 'button',
-      'aria-label': 'Open command launcher',
+      'aria-label': `Command ${shortcut}`,
       'aria-keyshortcuts': 'Control+K Meta+K',
-      title: 'Command launcher',
+      title: `Command ${shortcut}`,
     },
     [
       el('span', {}, ['Command']),
-      el('span', { className: 'icon-btn__kbd' }, [shortcutLabel()]),
+      el('span', { className: 'icon-btn__kbd' }, [shortcut]),
     ],
   );
 

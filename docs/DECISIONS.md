@@ -134,6 +134,15 @@ Amendments to the constitution require a new dated entry here.
 
 ---
 
+### D014 — Public workspace repositioning (v1 IA)
+**Date:** 2026-08-01  
+**Decision:** Reposition the site as the public workspace of Kartik Juneja. Freeze primary nav to Home · Products · Knowledge · About · Contact. Adopt content model v2 (`home/`, `products/`, `case-studies/`, `knowledge/`, `about/`, `site/`). Professional case studies (e.g. Horsepower Financial) are never independent products. CMS/admin/auth/tooling remain out of repository scope.  
+**Why:** Prior IA read as interactive resume; products must be the centerpiece without inventing a studio/company brand.  
+**Alternatives rejected:** Independent Software Studio brand; unified “Work” top-level label (use Products); local CMS in this repo.  
+**Refs:** `docs/WORKSPACE_REPOSITIONING.md`, `docs/CONTENT_MODEL_V2.md`, `docs/IMPLEMENTATION_PLAN_V2.md`
+
+---
+
 ## How to amend
 
 1. Propose change against a failed real criterion (Done, accessibility, budget) — not preference.  

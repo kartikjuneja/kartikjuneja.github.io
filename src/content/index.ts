@@ -1,18 +1,18 @@
 import type {
-  Article,
-  Availability,
   Education,
   Experience,
-  Experiment,
+  HomepageConfig,
+  KnowledgeItem,
+  KnowledgeKind,
   Language,
-  MarkdownPage,
+  MarkdownDoc,
   Navigation,
   Product,
-  Service,
+  ProductType,
+  ResumeConfig,
   Site,
   SkillGroup,
   SocialLink,
-  TimelineItem,
 } from '@/types';
 import {
   asNullableString,
@@ -22,17 +22,16 @@ import {
 } from '@/content/parseFrontmatter';
 import { renderMarkdown, splitMarkdownSections } from '@/content/markdown';
 
-import siteJson from '@content/site.json';
-import navigationJson from '@content/navigation.json';
-import socialJson from '@content/social.json';
-import servicesJson from '@content/services.json';
-import timelineJson from '@content/timeline.json';
-import experienceJson from '@content/experience.json';
-import educationJson from '@content/education.json';
-import skillsJson from '@content/skills.json';
-import availabilityJson from '@content/availability.json';
+import settingsJson from '@content/site/settings.json';
+import navigationJson from '@content/site/navigation.json';
+import socialJson from '@content/site/social.json';
+import homepageJson from '@content/home/homepage.json';
+import experienceJson from '@content/about/experience.json';
+import educationJson from '@content/about/education.json';
+import skillsJson from '@content/about/skills.json';
+import resumeJson from '@content/about/resume.json';
 
-const pageModules = import.meta.glob('../../content/pages/*.md', {
+const aboutModules = import.meta.glob('../../content/about/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
@@ -44,20 +43,20 @@ const productModules = import.meta.glob('../../content/products/*.md', {
   import: 'default',
 }) as Record<string, string>;
 
-const writingModules = import.meta.glob('../../content/writing/*.md', {
+const caseStudyModules = import.meta.glob('../../content/case-studies/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
 }) as Record<string, string>;
 
-const experimentModules = import.meta.glob('../../content/experiments/*.md', {
+const knowledgeModules = import.meta.glob('../../content/knowledge/**/*.md', {
   eager: true,
   query: '?raw',
   import: 'default',
 }) as Record<string, string>;
 
 function fileSlug(path: string): string {
-  const file = path.split('/').pop() ?? path;
+  const file = path.split(/[/\\]/).pop() ?? path;
   return file.replace(/\.md$/, '');
 }
 
@@ -65,98 +64,148 @@ function isTemplateFile(path: string): boolean {
   return fileSlug(path).startsWith('_');
 }
 
-export const site = siteJson as Site;
+function knowledgeKindFromPath(path: string): KnowledgeKind {
+  const normalized = path.replace(/\\/g, '/');
+  if (normalized.includes('/notes/')) return 'note';
+  if (normalized.includes('/architecture/')) return 'architecture';
+  if (normalized.includes('/decisions/')) return 'decision';
+  if (normalized.includes('/lessons/')) return 'lesson';
+  if (normalized.includes('/reviews/')) return 'review';
+  return 'article';
+}
+
+function parseProduct(
+  path: string,
+  raw: string,
+  defaultType: ProductType,
+): Product {
+  const { data, content } = parseFrontmatter(raw);
+  const slug = asString(data.slug, fileSlug(path));
+  const linksRaw = (data.links ?? {}) as Record<string, unknown>;
+  const title = asString(data.title, asString(data.name, slug));
+  const summary = asString(data.summary, asString(data.description, '—'));
+  const type = asString(data.type, defaultType) as ProductType;
+
+  return {
+    slug,
+    title,
+    name: title,
+    summary,
+    description: summary,
+    type,
+    status: asString(data.status, '—'),
+    employer: asNullableString(data.employer),
+    client: asNullableString(data.client),
+    role: asNullableString(data.role),
+    technology: asStringArray(data.technology),
+    featured: Boolean(data.featured),
+    homeOrder: typeof data.homeOrder === 'number' ? data.homeOrder : 0,
+    links: {
+      website: asNullableString(linksRaw.website),
+      repository: asNullableString(linksRaw.repository),
+      demo: asNullableString(linksRaw.demo ?? linksRaw.caseStudy),
+    },
+    bodyHtml: renderMarkdown(content),
+    sections: splitMarkdownSections(content),
+  };
+}
+
+export const site = settingsJson as Site;
 export const navigation = navigationJson as Navigation;
 export const social = socialJson as SocialLink[];
-export const services = servicesJson as Service[];
-export const timeline = timelineJson as TimelineItem[];
+export const homepage = homepageJson as HomepageConfig;
 export const experience = experienceJson as Experience[];
 export const education = educationJson as Education[];
-export const availability = availabilityJson as Availability;
+export const resume = resumeJson as ResumeConfig;
 
 export const skillGroups = (skillsJson as { groups: SkillGroup[] }).groups;
 export const spokenLanguages = (skillsJson as { languages: Language[] }).languages;
 
-export const pages: MarkdownPage[] = Object.entries(pageModules)
-  .filter(([path]) => !isTemplateFile(path))
-  .map(([path, raw]) => {
-    const { data, content } = parseFrontmatter(raw);
-    const slug = fileSlug(path);
-    return {
-      slug,
-      title: asString(data.title, slug),
-      description: asString(data.description),
-      bodyHtml: renderMarkdown(content),
-    };
-  });
-
-export function getPage(slug: string): MarkdownPage | undefined {
-  return pages.find((page) => page.slug === slug);
+function loadAboutDoc(slug: string): MarkdownDoc | undefined {
+  const entry = Object.entries(aboutModules).find(([path]) => fileSlug(path) === slug);
+  if (!entry) return undefined;
+  const [, raw] = entry;
+  const { data, content } = parseFrontmatter(raw);
+  return {
+    slug,
+    title: asString(data.title, slug),
+    description: asString(data.description),
+    bodyHtml: renderMarkdown(content),
+  };
 }
 
-export const products: Product[] = Object.entries(productModules)
+export const aboutStory = loadAboutDoc('story');
+export const aboutPhilosophy = loadAboutDoc('philosophy');
+export const aboutFocus = loadAboutDoc('focus');
+export const aboutUses = loadAboutDoc('uses');
+
+const independentProducts = Object.entries(productModules)
   .filter(([path]) => !isTemplateFile(path))
-  .map(([path, raw]) => {
-    const { data, content } = parseFrontmatter(raw);
-    const slug = asString(data.slug, fileSlug(path));
-    const linksRaw = (data.links ?? {}) as Record<string, unknown>;
-    return {
-      slug,
-      name: asString(data.name, slug),
-      description: asString(data.description, '—'),
-      status: asString(data.status, '—'),
-      technology: asStringArray(data.technology),
-      featured: Boolean(data.featured),
-      links: {
-        website: asNullableString(linksRaw.website),
-        repository: asNullableString(linksRaw.repository),
-        caseStudy: asNullableString(linksRaw.caseStudy),
-      },
-      bodyHtml: renderMarkdown(content),
-      sections: splitMarkdownSections(content),
-    };
-  })
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .map(([path, raw]) => parseProduct(path, raw, 'independent'));
+
+const caseStudies = Object.entries(caseStudyModules)
+  .filter(([path]) => !isTemplateFile(path))
+  .map(([path, raw]) => parseProduct(path, raw, 'professional'));
+
+/** All product-shaped work (independent, professional, research). */
+export const products: Product[] = [...independentProducts, ...caseStudies].sort(
+  (a, b) =>
+    Number(b.featured) - Number(a.featured) ||
+    a.homeOrder - b.homeOrder ||
+    a.title.localeCompare(b.title),
+);
 
 export function getProduct(slug: string): Product | undefined {
   return products.find((product) => product.slug === slug);
 }
 
-export const articles: Article[] = Object.entries(writingModules)
-  .filter(([path]) => !isTemplateFile(path))
-  .map(([path, raw]) => {
-    const { data, content } = parseFrontmatter(raw);
-    const slug = asString(data.slug, fileSlug(path));
-    return {
-      slug,
-      title: asString(data.title, slug),
-      description: asString(data.description, '—'),
-      date: asNullableString(data.date),
-      status: asString(data.status, '—'),
-      bodyHtml: renderMarkdown(content),
-    };
-  })
-  .sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
-
-export function getArticle(slug: string): Article | undefined {
-  return articles.find((article) => article.slug === slug);
+export function getIndependentProducts(): Product[] {
+  return products.filter((product) => product.type === 'independent');
 }
 
-export const experiments: Experiment[] = Object.entries(experimentModules)
-  .filter(([path]) => !isTemplateFile(path))
+export function getCaseStudies(): Product[] {
+  return products.filter((product) => product.type === 'professional');
+}
+
+export const knowledge: KnowledgeItem[] = Object.entries(knowledgeModules)
+  .filter(([path]) => !isTemplateFile(path) && path.endsWith('.md'))
   .map(([path, raw]) => {
     const { data, content } = parseFrontmatter(raw);
     const slug = asString(data.slug, fileSlug(path));
+    const kind = (asString(data.kind, knowledgeKindFromPath(path)) ||
+      'article') as KnowledgeKind;
     return {
       slug,
       title: asString(data.title, slug),
-      description: asString(data.description, '—'),
-      status: asString(data.status, '—'),
+      summary: asString(data.summary, asString(data.description, '—')),
+      date: asNullableString(data.date),
+      status: asString(data.status, 'published'),
+      kind,
+      tags: asStringArray(data.tags),
+      topics: asStringArray(data.topics),
+      featured: Boolean(data.featured),
+      order: typeof data.order === 'number' ? data.order : 0,
       bodyHtml: renderMarkdown(content),
+      sections: splitMarkdownSections(content),
     };
   })
-  .sort((a, b) => a.title.localeCompare(b.title));
+  .filter((item) => item.status !== 'draft')
+  .sort(
+    (a, b) =>
+      Number(b.featured) - Number(a.featured) ||
+      a.order - b.order ||
+      (b.date ?? '').localeCompare(a.date ?? '') ||
+      a.title.localeCompare(b.title),
+  );
 
-export function getExperiment(slug: string): Experiment | undefined {
-  return experiments.find((experiment) => experiment.slug === slug);
+/** @deprecated use knowledge */
+export const articles = knowledge;
+
+export function getKnowledge(slug: string): KnowledgeItem | undefined {
+  return knowledge.find((item) => item.slug === slug);
+}
+
+/** @deprecated use getKnowledge */
+export function getArticle(slug: string): KnowledgeItem | undefined {
+  return getKnowledge(slug);
 }

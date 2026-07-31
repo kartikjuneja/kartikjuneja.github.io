@@ -33,9 +33,10 @@ export function startApp(root: HTMLElement): void {
   chrome.setLauncherHandler(() => launcher.toggle());
   chrome.setThemeHandler(() => toggleTheme());
 
+  const isApple = /Mac|iPhone|iPad|iPod/i.test(navigator.platform || navigator.userAgent);
   const footer = createEnvironmentFooter(
     `© ${new Date().getFullYear()} ${site.name}`,
-    'Ctrl+K to navigate',
+    `${isApple ? '⌘K' : 'Ctrl+K'} to navigate`,
   );
 
   const router = createRouter({

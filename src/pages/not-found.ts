@@ -8,7 +8,7 @@ const page: PageModule = {
   render() {
     return AppShell({
       title: 'Not found',
-      description: 'This route is not part of the environment.',
+      description: 'This path is not published.',
       children: [
         SparseState('Nothing here.', 'Return home or use Command to jump.'),
         Button({ href: '/', label: 'Back home', variant: 'primary' }),

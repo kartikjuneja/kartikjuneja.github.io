@@ -1,0 +1,44 @@
+{
+  "primary": [
+    {
+      "label": "Home",
+      "path": "/",
+      "description": "Workspace overview",
+      "showInNav": true,
+      "showInFooter": true
+    },
+    {
+      "label": "Products",
+      "path": "/products",
+      "description": "Products and case studies",
+      "showInNav": true,
+      "showInFooter": true
+    },
+    {
+      "label": "Knowledge",
+      "path": "/knowledge",
+      "description": "Articles, notes, and architecture",
+      "showInNav": true,
+      "showInFooter": true
+    },
+    {
+      "label": "About",
+      "path": "/about",
+      "description": "Story, experience, and resume",
+      "showInNav": true,
+      "showInFooter": true
+    },
+    {
+      "label": "Contact",
+      "path": "/contact",
+      "description": "Get in touch",
+      "showInNav": true,
+      "showInFooter": true
+    }
+  ],
+  "actions": [
+    { "label": "Products", "path": "/products", "description": "View products and case studies" },
+    { "label": "Knowledge", "path": "/knowledge", "description": "Open knowledge" },
+    { "label": "Contact", "path": "/contact", "description": "Start a conversation" }
+  ]
+}

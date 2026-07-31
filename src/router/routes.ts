@@ -1,60 +1,61 @@
-import type { Route } from '@/router/types';
-
-export const routes: Route[] = [
-  {
-    path: '/',
-    load: async () => (await import('@/pages/home')).default,
-  },
-  {
-    path: '/about',
-    load: async () => (await import('@/pages/about')).default,
-  },
-  {
-    path: '/products',
-    load: async () => (await import('@/pages/products')).default,
-  },
-  {
-    pattern: /^\/products\/(?<slug>[a-z0-9-]+)$/,
-    load: async (params) => (await import('@/pages/product-detail')).create(params.slug),
-  },
-  {
-    path: '/services',
-    load: async () => (await import('@/pages/services')).default,
-  },
-  {
-    path: '/timeline',
-    load: async () => (await import('@/pages/timeline')).default,
-  },
-  {
-    path: '/writing',
-    load: async () => (await import('@/pages/writing')).default,
-  },
-  {
-    pattern: /^\/writing\/(?<slug>[a-z0-9-]+)$/,
-    load: async (params) => (await import('@/pages/article')).create(params.slug),
-  },
-  {
-    path: '/experiments',
-    load: async () => (await import('@/pages/experiments')).default,
-  },
-  {
-    pattern: /^\/experiments\/(?<slug>[a-z0-9-]+)$/,
-    load: async (params) => (await import('@/pages/experiment-detail')).create(params.slug),
-  },
-  {
-    path: '/uses',
-    load: async () => (await import('@/pages/uses')).default,
-  },
-  {
-    path: '/now',
-    load: async () => (await import('@/pages/now')).default,
-  },
-  {
-    path: '/resume',
-    load: async () => (await import('@/pages/resume')).default,
-  },
-  {
-    path: '/contact',
-    load: async () => (await import('@/pages/contact')).default,
-  },
-];
+import type { Route } from '@/router/types';
+
+/**
+ * Legacy path redirects (pathname → destination path+hash).
+ * Kept so old bookmarks resolve into the frozen five-route IA.
+ */
+export const redirects: Record<string, string> = {
+  '/writing': '/knowledge',
+  '/resume': '/about#resume',
+  '/timeline': '/about',
+  '/uses': '/about#uses',
+  '/now': '/about#focus',
+  '/services': '/about',
+  '/experiments': '/products',
+  '/work': '/products',
+};
+
+export const routes: Route[] = [
+  {
+    path: '/',
+    load: async () => (await import('@/pages/home')).default,
+  },
+  {
+    path: '/products',
+    load: async () => (await import('@/pages/products')).default,
+  },
+  {
+    pattern: /^\/products\/(?<slug>[a-z0-9-]+)$/,
+    load: async (params) => (await import('@/pages/product-detail')).create(params.slug),
+  },
+  {
+    path: '/knowledge',
+    load: async () => (await import('@/pages/knowledge')).default,
+  },
+  {
+    pattern: /^\/knowledge\/(?<slug>[a-z0-9-]+)$/,
+    load: async (params) => (await import('@/pages/knowledge-detail')).create(params.slug),
+  },
+  {
+    path: '/about',
+    load: async () => (await import('@/pages/about')).default,
+  },
+  {
+    path: '/contact',
+    load: async () => (await import('@/pages/contact')).default,
+  },
+  // Legacy detail patterns → same handlers after redirect rewrite in router
+  {
+    pattern: /^\/writing\/(?<slug>[a-z0-9-]+)$/,
+    load: async (params) => (await import('@/pages/knowledge-detail')).create(params.slug),
+  },
+  {
+    pattern: /^\/work\/(?<slug>[a-z0-9-]+)$/,
+    load: async (params) => (await import('@/pages/product-detail')).create(params.slug),
+  },
+  {
+    pattern: /^\/experiments\/(?<slug>[a-z0-9-]+)$/,
+    load: async (params) => (await import('@/pages/product-detail')).create(params.slug),
+  },
+];
+

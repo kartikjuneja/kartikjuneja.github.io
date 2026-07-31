@@ -1,18 +1,15 @@
-# TODO — Remaining after content ship
+# Follow-ups (post v1)
 
-## Content still optional / sparse by design
+Optional content depth — not release blockers for engineering shell:
 
-- [ ] Personal products beyond professional Horsepower Financial case study
-- [ ] Deeper case-study sections currently marked “Not published” (when facts exist)
-- [ ] Payreel / Thinkflow detailed descriptions (only high-level facts verified)
-- [ ] Uses: hardware and productivity inventories
-- [ ] Now: current learning details
-- [ ] Writing / experiments entries
-- [ ] Resume PDF asset
+- [ ] Independent public products (when real)
+- [ ] Knowledge entries using `content/knowledge/_template.md`
+- [ ] Deeper case-study sections when facts are publishable
+- [ ] Resume PDF (optional asset)
 
-## Verification before public 1.0 claim
+Before claiming the **public** URL is v1:
 
-- [ ] Screen reader pass (NVDA or VoiceOver)
-- [ ] Lighthouse on production URL
-- [ ] Confirm “Current” employment end date still accurate
-- [ ] Confirm custom domain DNS / GitHub Pages settings
+- [ ] Deploy `dist/` to GitHub Pages (replace legacy site)
+- [ ] Confirm custom domain DNS / HTTPS if using `kartikjuneja.com`
+- [ ] Lighthouse + screen-reader pass on the live URL
+- [ ] Confirm employment “Current” date still accurate
